@@ -5,7 +5,9 @@
     <title>Pokedex</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
 
 <body ng-controller="myController">
     <nav class="navbar navbar-default navbar-static-top">
@@ -14,19 +16,22 @@
             <div class="navbar-right">
                 <button class="btn btn-default" ng-click="prevPage()">Previous 20</span></button>
                 <button class="btn btn-default" ng-click="nextPage()">Next 20</span></button>
-<!--                    This button will show the next 20 pokemon by changing the offset in the url-->
             </div>
         </div>
     </nav>
     
     <main class="container">
         <div class="row">
-            <div class="col-xs12 col-sm-4" ng-repeat="pokemon in model">
+            <div class="col-xs12 col-sm-12" ng-repeat="pokemon in model">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">{{pokemon.name}}</div>
+                    <div class="panel-heading pane">{{pokemon.name | capitalize}}</div>
                     <div class="panel-body">
-<!--                        <button class="btn btn-primary" ng-click="addProduct()" ng-show="model.canPurchase">Add to Cart</button>-->
-<!--                            Probably just make the pokemon.name BE the button that brings up more info about that pokemon.-->
+                        <button class="btn btn-primary" ng-click="getSpecies(pokemon.name); moreInfo = !moreInfo">More Info</button>
+                        <p ng-show="moreInfo">
+                            ID: <span class="info">{{species.id}}</span></br>
+                            Color: <span class="info">{{species.color.name}}</span></br>
+                            Base Happiness: <span class="info">{{species.base_happiness}}</span>
+                        </p>
                     </div>
                 </div>
             </div>

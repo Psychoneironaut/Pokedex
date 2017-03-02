@@ -8,6 +8,10 @@ angular.module("pokedex").factory("Pokemon", function PokemonFactory(){
                 offset = 0;
             }
             return $http.get(url + "?offset=" + offset);
+        },
+        
+        species : function($http, name){
+            return $http.get("http://pokeapi.co/api/v2/pokemon-species/" + name);
         }
     }
 })
