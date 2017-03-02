@@ -12,13 +12,14 @@
         <div class="container">
             <div class="navbar-header"> <a class="navbar-brand" href="#">Pokedex</a> </div>
             <div class="navbar-right">
-<!--                <button class="btn btn-default" ng-click="">Next 20</span></button>-->
+                <button class="btn btn-default" ng-click="prevPage()">Previous 20</span></button>
+                <button class="btn btn-default" ng-click="nextPage()">Next 20</span></button>
 <!--                    This button will show the next 20 pokemon by changing the offset in the url-->
             </div>
         </div>
     </nav>
     
-    <main class="container" ng-init="init()">
+    <main class="container">
         <div class="row">
             <div class="col-xs12 col-sm-4" ng-repeat="pokemon in model">
                 <div class="panel panel-primary">
